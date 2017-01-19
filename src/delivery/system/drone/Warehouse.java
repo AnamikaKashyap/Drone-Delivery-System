@@ -34,7 +34,7 @@ public class Warehouse implements WarehouseManagerInterface{
 		products.put(product.getID(),product);
 		quantities.put(product.getID(), quantity);
 	}
-
+	
 	@Override
 	public RequestResult hasProducts(Request request) {
 		RequestResult result = new RequestResult();
@@ -53,7 +53,7 @@ public class Warehouse implements WarehouseManagerInterface{
 				result.setLog("Warehouse is missing " + products.get(key).getName());
 				result.setExecutable(false);
 				break;
-			}
+			}			
 			result.addWeigth(value * products.get(key).getWeight());
 		}
 		return result;

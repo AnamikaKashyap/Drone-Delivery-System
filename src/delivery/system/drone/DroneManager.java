@@ -9,7 +9,7 @@ public class DroneManager implements DroneManagerInterface {
 	public void addDrone(Drone drone){
 		drones.add(drone);
 	}
-	
+
 	@Override
 	public boolean hasDrones(RequestResult reqRes) {
 		if (!reqRes.isExecutable()){

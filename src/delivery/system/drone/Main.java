@@ -23,19 +23,19 @@ public class Main {
 		}
 		
 		//delivery 4 2016-10-25 12:31 420,369 1 100 2 20 3 30 4 100
-		Scanner scanner = new Scanner(System.in);
-		String req = scanner.nextLine();
-		System.out.println(req);
-		Request request = Request.parse(req);
-		System.out.println(request);
-		scanner.close();
-		RequestResult result = warehouse.hasProducts(request);
-		
-		System.out.println(result);
-		System.out.println(Coordinates.calculateDistance(result.getTargetCoordinates(), result.getWarehouseCoordinates()));
-		System.out.println(Asen.hasDrones(result));
-		System.out.println(Asen);
-
+		while (true) {
+			Scanner scanner = new Scanner(System.in);
+			String req = scanner.nextLine();
+			System.out.println(req);
+			Request request = Request.parse(req);
+			System.out.println(request);
+			RequestResult result = warehouse.hasProducts(request);
+			
+			System.out.println(result);
+			System.out.println(Coordinates.calculateDistance(result.getTargetCoordinates(), result.getWarehouseCoordinates()));
+			System.out.println(Asen.hasDrones(result));
+			System.out.println(Asen);
+		}
 	}
 
 }
