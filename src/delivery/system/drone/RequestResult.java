@@ -1,5 +1,8 @@
 package delivery.system.drone;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class RequestResult {
 	private boolean executable = false;
 	private String log = "";

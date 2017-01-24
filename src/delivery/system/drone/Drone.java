@@ -5,10 +5,12 @@ public class Drone {
 	private int battery_units;
 	private float capacity;
 	private int charging_units;
+	private int maximum_battery;
 	
 	public Drone(int ID, int battery_units, float capacity, int charging_units){
 		this.ID=ID;
 		this.battery_units=battery_units;
+		this.maximum_battery=battery_units;
 		this.capacity=capacity;
 		this.charging_units=charging_units;
 	}
@@ -18,7 +20,10 @@ public class Drone {
 		return "Drone [ID=" + ID + ", battery_units=" + battery_units + ", capacity=" + capacity + ", charging_units="
 				+ charging_units + "]";
 	}
-
+	
+	public int getMaximumBatteryUnits() {
+		return this.maximum_battery;
+	}
 	public int getID() {
 		return ID;
 	}

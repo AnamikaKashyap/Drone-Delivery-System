@@ -10,6 +10,12 @@ public class DroneManager implements DroneManagerInterface {
 		drones.add(drone);
 	}
 
+	public void setBattery_units_to_maximum() {
+		for (Drone drone: this.drones) {
+			drone.setBattery_units(drone.getMaximumBatteryUnits());
+		}
+	}
+	
 	@Override
 	public boolean hasDrones(RequestResult reqRes) {
 		if (!reqRes.isExecutable()){
@@ -33,7 +39,6 @@ public class DroneManager implements DroneManagerInterface {
 			for (Drone drone : used){
 				int currentBattery = drone.getBattery_units();
 				drone.setBattery_units(currentBattery - 2*distance);
-				//System.out.println(drone);
 			}
 			return true;
 		}
