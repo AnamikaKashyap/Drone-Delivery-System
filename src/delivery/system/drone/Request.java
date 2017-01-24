@@ -68,6 +68,7 @@ public class Request {
 	public static Request parseDelivery(String input){
 		Request result = new Request();
 		try{
+			result.products.clear();
 			
 			String[] splitted = input.split(" ");
 			result.setID(Integer.parseInt(splitted[1]));
@@ -78,7 +79,6 @@ public class Request {
 			newCoordinates.setY(Integer.parseInt(coordinates[1]));
 			result.setTarget_coordinates(newCoordinates);
 			
-			result.products.clear();
 			
 			int size = splitted.length;
 			for (int i=5;i<size;i+=2){
@@ -101,11 +101,11 @@ public class Request {
 		Request result = new Request();
 		try{
 			
+			result.supply.clear();
 			String[] splitted = input.split(" ");
 			result.setID(Integer.parseInt(splitted[1]));
 			result.setTimestamp(splitted[2] + splitted[3]);
 			
-			result.supply.clear();
 			int size = splitted.length;
 			for (int i=4;i<size;i+=2){
 				
