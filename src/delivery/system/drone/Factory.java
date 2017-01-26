@@ -2,7 +2,7 @@ package delivery.system.drone;
 
 import java.util.Scanner;
 
-public class InitializerClass {
+public class Factory {
 	private RequestManager requestManager;
 
 	public static Warehouse setWarehouse() {
@@ -23,14 +23,14 @@ public class InitializerClass {
 		return Asen;
 	}
 	
-	public InitializerClass() {
+	public Factory() {
 		this.requestManager = new RequestManager(setWarehouse(), setDroneManager());
 	}
 	
 	public static void main(String[] args) {
 		//example:
 		//delivery 4 2016-10-25 12:31 420,369 1 100 2 20 3 30 4 100
-		InitializerClass init = new InitializerClass();
+		Factory init = new Factory();
 				while (true) {
 					Scanner scanner = new Scanner(System.in);
 					String req = scanner.nextLine();
