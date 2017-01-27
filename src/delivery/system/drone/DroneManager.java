@@ -21,6 +21,7 @@ public class DroneManager implements DroneManagerInterface {
 		if (!reqRes.isExecutable()){
 			return false;
 		}
+		charge_drones();
 		int distance = (int)Math.ceil(Coordinates.calculateDistance(
 				reqRes.getTargetCoordinates(), reqRes.getWarehouseCoordinates()));
 		
@@ -44,7 +45,22 @@ public class DroneManager implements DroneManagerInterface {
 		}
 		return false;
 	}
-
+	
+	public static void chargeDrones(RequestResult reqRes) {
+		<?> log = DeliveryLog.getDeliveryLog();
+		if (reqRes.id < 1) {
+			break;
+		} else {
+			batteryToCharge = calcBatteryToCharge(log[reqRes.id - 1], log[reqRes.id]);
+			droneManager.chargeDrones(range);
+		}
+	}
+	
+	public static int calcBatteryToCharge(int delivery_1, int delivery_2) {
+		batteryUnits = (delivery_2 - delivery_2) * Drone.chargeRate;
+		return batteryUnits;
+	}
+	
 	@Override
 	public String toString() {
 		return "DroneManager [drones=" + drones + "]";

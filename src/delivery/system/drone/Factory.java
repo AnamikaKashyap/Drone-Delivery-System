@@ -1,11 +1,8 @@
 package delivery.system.drone;
 
-import java.util.Scanner;
-
 public class Factory {
-	private RequestManager requestManager;
 
-	public static Warehouse setWarehouse() {
+	public static Warehouse createWarehouse() {
 		Warehouse warehouse = new Warehouse();
 		warehouse.setCoordinates(new Coordinates(42,42));
 		warehouse.addProduct(new Product(1,"aaa",15), 100);
@@ -15,7 +12,7 @@ public class Factory {
 		return warehouse;
 	}
 	
-	public static DroneManager setDroneManager() {
+	public static DroneManager createDroneManager() {
 		DroneManager Asen = new DroneManager();
 		for (int i=1;i<=30;i++){
 			Asen.addDrone(new Drone (i,500*i,300,10));
@@ -23,26 +20,22 @@ public class Factory {
 		return Asen;
 	}
 	
-	public Factory() {
-		this.requestManager = new RequestManager(setWarehouse(), setDroneManager());
+	public static RequestManager createRequestManager(Warehouse warehouse, DroneManager droneManager) {
+		return new RequestManager(warehouse, droneManager);
 	}
 	
+	/*
 	public static void main(String[] args) {
 		//example:
 		//delivery 4 2016-10-25 12:31 420,369 1 100 2 20 3 30 4 100
 		Factory init = new Factory();
 				while (true) {
-					Scanner scanner = new Scanner(System.in);
-					String req = scanner.nextLine();
-					System.out.println(req);
-					Request request = Request.parse(req);
-					System.out.println(request);
-					RequestResult result = init.requestManager.warehouseHasProducts(request);
 					
+					RequestResult result = init.requestManager.warehouseHasProducts(request);
 					System.out.println(result);
 					System.out.println(Coordinates.calculateDistance(result.getTargetCoordinates(), result.getWarehouseCoordinates()));
 					System.out.println(init.requestManager.droneManagerHasDrones(result));
 				}
-	}
+	}*/
 
 }

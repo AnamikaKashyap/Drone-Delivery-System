@@ -14,7 +14,7 @@ public class RequestManager {
 		this.droneManager = droneManager;
 	}
 	
-	public RequestResult warehouseHasProducts(Request request) {
+	public RequestResult warehouseHasProducts(DeliveryRequest request) {
 		return this.warehouse.hasProducts(request);
 	}
 	
@@ -22,7 +22,7 @@ public class RequestManager {
 		return this.droneManager.hasDrones(result);
 	}
 	
-	public void reduceProductQuantity(Map<Integer, Integer> quantities, Request request) {
+	public void reduceProductQuantity(Map<Integer, Integer> quantities, DeliveryRequest request) {
 		for (Map.Entry<Integer, Integer> entry : request.getProducts().entrySet()){
 			int key = entry.getKey();
 			int value = entry.getValue();
@@ -32,5 +32,10 @@ public class RequestManager {
 	
 	public void updateDroneBattery() {
 		this.droneManager.setBattery_units_to_maximum();
+	}
+
+	public String handleRquest(DeliveryRequest request) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

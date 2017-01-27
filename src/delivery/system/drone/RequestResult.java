@@ -9,6 +9,7 @@ public class RequestResult {
 	private float totalWeight = 0;
 	private Coordinates warehouseCoordinates = new Coordinates();
 	private Coordinates targetCoordinates = new Coordinates();
+	private int id = 1;
 	
 	public boolean isExecutable() {
 		return executable;

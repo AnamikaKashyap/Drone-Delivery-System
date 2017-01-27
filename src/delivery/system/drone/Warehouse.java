@@ -33,7 +33,7 @@ public class Warehouse implements WarehouseManagerInterface {
 	}
 
 	@Override
-	public RequestResult hasProducts(Request request) {
+	public RequestResult hasProducts(DeliveryRequest request) {
 		RequestResult result = new RequestResult();
 		result.setExecutable(true);
 		result.setWarehouseCoordinates(this.coordinates);
@@ -56,7 +56,7 @@ public class Warehouse implements WarehouseManagerInterface {
 		return result;
 	}
 
-	public void AcceptSupply(Request request) {
+	public void AcceptSupply(DeliveryRequest request) {
 		for (Entry<Integer, SupplyRequestHelper> entry : request.getSupply().entrySet()) {
 			int key = entry.getKey();
 			SupplyRequestHelper value = entry.getValue();
